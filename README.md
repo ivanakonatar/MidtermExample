@@ -1,8 +1,6 @@
 # Midterm Exam Example
 
-* Name: First_Name
-* Surname: Last_Name
-* Index #: 17/001
+* Name: Ivana
+* Surname: Konatar
+* Index: 17/115
 
----
-Please update data above accordingly. 
