@@ -1,12 +1,13 @@
+
 """
 ===================   TASK 4   ====================
-* Name: Sum Number Digits
+* Name: Convert To Upper
 *
-* Write a function `sum_digits` that will return
-* sum of digits for given integer number.
-* If passed value is invalid, function should
-* return -1 which indicates something went wrong.
-*
+* Write a function `convert_2_upper` that will take
+* a string as an argument. The function should
+* convert all lowercase letter to uppercase without
+* usage of built-in function `upper()`.
+
 * Note: Please describe in details possible cases
 * in which your solution might not work.
 *
@@ -14,31 +15,28 @@
 ===================================================
 """
 
+def mala_u_velika(recenica):
 
-def sum_digits(number):
+    if not isinstance(recenica,str):
+        print("Pogresan unos! ")
 
-    # Chek if passed number is integer
-    if not isinstance(number, int):
-        return -1
+    nova_recenica = ''
 
-    # Initialize sum value
-    digit_sum = 0
+    for karakter in recenica:
+        broj_chr = ord(karakter)
+        if broj_chr > 96 and broj_chr < 123:
 
-    # NOTE: Fix this solution so it can work
-    # for negative integers
+            broj_veliko_slova = broj_chr - 32
+            karakter = chr (broj_veliko_slova)
 
-    while number > 0:
-        digit = number % 10
-        number = number // 10
-        digit_sum = digit_sum + digit
+        nova_recenica+= karakter
 
-    return digit_sum
-
+    return nova_recenica
 
 def main():
 
-    int_number = 1234
-    digit_sum = sum_digits(int_number)
-    print("Sum of digits for given numbers is: ", digit_sum)
+    recenica="IvaNa KONatAr"
+    print("Velikim slovima napisana je: ", mala_u_velika(recenica))
+    pass
 
 main()

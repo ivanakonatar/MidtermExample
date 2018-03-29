@@ -1,40 +1,42 @@
 """
 ===================   TASK 3   ====================
-* Name: Cube Volume
+* Name: Negative and Non-Negative Elements
 *
-* Write a function `cube_volume` that will return
-* volume of a cube for a given side length.
-* If passed value is invalid, function should
-* return -1 which indicates something went wrong.
+* Write a script that will populate a list with as
+* many elements as user defines. For taken number
+* of elements the script should take the input from
+* user for each element. You should expect that
+* user will always provide integer numbers. At the
+* end, the script should print how many negative
+* and non-negative numbers there were present in
+* the list.
 *
 * Note: Please describe in details possible cases
 * in which your solution might not work.
-*
-* Use main() function to test your solution.
 ===================================================
 """
 
+n = int(input("Koliko brojeva unosite? "))
 
-def cube_volume(side):
-    """
-    Calculates cube volume for given side.
-    Returns -1 if argument is not int or float
-    """
-    # Side is not integer or float
-    if (not isinstance(side, int)) and (not isinstance(side, float)):
-        return -1
+lista = []
 
-    # NOTE: Fix this solution in order to work
-    # with negative numbers
+nenegativni = negativni = 0
 
-    # Calculate cube volume (side^3)
-    return side ** 3
+for i in range(n):
+    novi_broj = int(input("Unesite "+ str(i+1)+ ".broj: "))
+    lista.append(novi_broj)
+
+    if novi_broj == 0:
+        nenegativni += 1
+
+    else:
+
+        if novi_broj < 0:
+            negativni += 1
+
+print("Vasa lista: ", str(lista))
+print("Nenegativnih brojeva u listi ima: ", negativni)
+print("Negativnih brojeva u listi ima: ", negativni)
 
 
-def main():
 
-    side_in_cm = 5.0
-    volume_of_cube = cube_volume(side_in_cm)
-    print("Volume of a cube is: ", volume_of_cube)
-
-main()

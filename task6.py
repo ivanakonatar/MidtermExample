@@ -1,58 +1,42 @@
 """
 ===================   TASK 6   ====================
-* Name: Valid Mobile Number In Montenegro
+* Name: Attendance Checker
 *
-* Write a function `valid_mobile_number` that will
-* return True if given string is valid mobile phone
-* number in Montenegro. Consider that +382 code will
-* not be passed.
-*
-* Phone number is valid if:
-*
-*  - Has 9 or 10 digits
-*  - Begins with '06'
-*  - Third digit has to be one of [3, 6, 7, 8, 9]
-*  - Contains digits only
+* Write a student attendance checker script. The
+* script should take, as user input, minimum
+* required number of attended classes for student
+* in order to take an exam. File `attendance.csv`
+* contains info about students and number of
+* classes they attended. Print student names, that
+* do not have right to take an exam.
 *
 * Note: Please describe in details possible cases
 * in which your solution might not work.
-*
-* Use main() function to test your solution.
 ===================================================
 """
+sve_linije = open("attendance.csv",'r').readlines()
+
+minimum = abs(int(input("Unesi broj: ")))
 
 
-def valid_mobile_number(phone_number):
+lista=[]
 
-    # If phone_number is not string it is not valid
-    if not isinstance(phone_number, str):
-        return False
+for linija in sve_linije:
 
-    # Check if contains only digits
-    if not phone_number.isnumeric():
-        return False
+    linija_bez_praznina = linija.strip()
 
-    # Check if has 9 or 10 digits
-    if not len(phone_number) in [9, 10]:
-        return False
+    student_i_broj = linija_bez_praznina.split(',')
 
-    # Check if starts with "06"
-    if not phone_number.startswith("06"):
-        return False
+    student = str(student_i_broj[0])
+    broj = int(student_i_broj[1])
 
-    # Check if third digit is allowed
-    if phone_number[2] not in ['3', '6', '7', '8', '9']:
-        return False
+    if broj <  minimum:
+        lista.append(student)
 
-    return True
+print("Studenti koji ne mogu da izadju na ispit su: ", lista)
 
 
-def main():
 
-    number_to_test = "0699919991"
-    if valid_mobile_number(number_to_test):
-        print("Phone number is valid in Montenegro!")
-    else:
-        print("Phone number is invalid in Montenegro!")
 
-main()
+
+

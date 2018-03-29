@@ -1,12 +1,13 @@
 """
 ===================   TASK 1   ====================
-* Name: Can String Be Float
+* Name: Area Of Circle
 *
-* Write a function `can_string_be_float` that will
-* check whether the passed string value can be
-* converted to float. If the string value can be
-* successfully converted to float, function should
-* return `True` otherwise it should return `False`.
+* Write a function `area_of_circle` that will
+* return area enclosed by a circle of radius `r`.
+* Consider that only float value for radius will
+* be passed. Negative values should be considered
+* as typo and function should ignore sign of a
+* number.
 *
 * Note: Please describe in details possible cases
 * in which your solution might not work.
@@ -14,47 +15,30 @@
 * Use main() function to test your solution.
 ===================================================
 """
+'''
 
+# Midterm Exam Example
 
-def can_string_be_float(string_value):
-    """
-    Checks whether string_value can be converted
-    to float. Each character in string_value will
-    be checked against list of allowed characters
-    for float numbers.
-    """
+* Name: Ivana
+* Surname: Konatar
+* Index: 17/115
+'''
 
-    # If passed value is not type of 'str'
-    if not isinstance(string_value, str):
-        return False
+import math
 
-    # Float number might have decimal point '.' and be negative '-'.
-    allowed_float_characters = ['0', '1', '2', '3', '4', '5',
-                                '6', '7', '8', '9', '.', '-']
+def area_of_circle(r):
 
-    # Loop through characters in string_value and check if there
-    # are any invalid characters
-    for character in string_value:
+    if not isinstance(r,float):
+        return -1
 
-        if character not in allowed_float_characters:
-            return False
-
-        # NOTE: This solution will fail if '-' appears in the
-        # string on other position beside first. Fix this
-        # issue by checking '-' position in string.
-
-        # NOTE: This solution will fail if multiple dots '.'
-        # are found in the middle of the string. Fix this
-        # issue by check number of dots and their position.
-
-    # If there were no invalid characters return `True`
-    return True
+    return (abs(r)**2)*math.pi
 
 
 def main():
 
-    user_value = input("Enter string which will be evaluated: ")
-    print(can_string_be_float(user_value))
-    print(float(user_value))
+    povrsina=area_of_circle(-2.3)
+    print(povrsina)
+
+    pass
 
 main()
